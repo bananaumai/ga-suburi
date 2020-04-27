@@ -38,7 +38,7 @@ jobs:
 
     # Runs script
     - name: Run a shellscript
-      run: .src/hello.sh
+      run: ./src/hello.sh
 
   only-master-push:
     if: github.event_name == 'push'
