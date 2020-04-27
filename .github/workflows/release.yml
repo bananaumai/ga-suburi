@@ -9,7 +9,7 @@ on:
 
 jobs:
   only-tag-build:
-    runs-on: ubuntu-latet
+    runs-on: ubuntu-latest
     steps:
       - name: Start only tag build
         run: echo "only tag build"
