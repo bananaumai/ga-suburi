@@ -1,0 +1,19 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - v*
+    paths:
+      - src/*
+
+jobs:
+  only-tag-build:
+    if: github.event.ref_type == 'tag'
+    runs-on: ubuntu-latet
+    steps:
+      - name: Start only tag build
+        run: echo "only tag build"
+      - name: Show tag info
+        run: echo "${{ github.ref }} - ${{ github.sha }}"
+  

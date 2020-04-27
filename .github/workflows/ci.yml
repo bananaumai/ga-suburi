@@ -7,10 +7,12 @@ name: CI
 on:
   push:
     branches: [ master ]
-    tags:
-      - v*
+    paths:
+      - src/*
   pull_request:
     branches: [ master ]
+    paths:
+      - src/*
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -38,20 +40,11 @@ jobs:
     - name: Run a shellscript
       run: ./hello.sh
 
-  only-push-build:
+  only-master-push:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - name: Start only push build
-        run: echo "only tag build"
-      - name: Show tag info
-        run: echo "${{ github.ref }} - ${{ github.sha }}"
-    
-  only-tag-build:
-    if: github.event.ref_type == 'tag'
-    runs-on: ubuntu-latet
-    steps:
-      - name: Start only tag build
         run: echo "only tag build"
       - name: Show tag info
         run: echo "${{ github.ref }} - ${{ github.sha }}"
