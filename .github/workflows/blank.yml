@@ -43,7 +43,7 @@ jobs:
       - name: Start only push build
         run: echo "only tag build"
       - name: Show tag info
-        run: echo ${{ github.ref }} ( ${{ github.sha }} )
+        run: echo "${{ github.ref }} - ${{ github.sha }}"
     
   only-tag-build:
     if: github.event.ref_type == "tag"
@@ -52,4 +52,4 @@ jobs:
       - name: Start only tag build
         run: echo "only tag build"
       - name: Show tag info
-        run: echo ${{ github.ref }} ( ${{ github.sha }} )
+        run: echo "${{ github.ref }} - ${{ github.sha }}"
