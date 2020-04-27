@@ -9,7 +9,6 @@ on:
 
 jobs:
   only-tag-build:
-    if: github.event.ref_type == 'tag'
     runs-on: ubuntu-latet
     steps:
       - name: Start only tag build
