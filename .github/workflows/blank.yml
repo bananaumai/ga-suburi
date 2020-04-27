@@ -38,6 +38,7 @@ jobs:
 
   only-push-build:
     if: github.event_name == "push"
+    runs-on: ubuntu-latest
     steps:
       - name: Start only push build
         run: echo "only tag build"
@@ -46,6 +47,7 @@ jobs:
     
   only-tag-build:
     if: github.event.ref_type == "tag"
+    runs-on: ubuntu-latet
     steps:
       - name: Start only tag build
         run: echo "only tag build"
