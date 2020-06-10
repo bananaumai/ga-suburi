@@ -16,6 +16,9 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
+  env:
+    BRANCH_NAME: branch-`echo ${GITHUB_REF##*/} | sed -e "s/branch-//"`
+
   # This workflow contains a single job called "build"
   build:
     # The type of runner that the job will run on
@@ -28,7 +31,7 @@ jobs:
 
     # Runs a single command using the runners shell
     - name: Run a one-line script
-      run: echo Hello, world!
+      run: echo Hello, world! ${BRANCH_NAME}
 
     # Runs a set of commands using the runners shell
     - name: Run a multi-line script
