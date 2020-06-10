@@ -16,11 +16,11 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  env:
-    BRANCH_NAME: branch-`echo ${GITHUB_REF##*/} | sed -e "s/branch-//"`
-
   # This workflow contains a single job called "build"
   build:
+    env:
+      BRANCH_NAME: branch-`echo ${GITHUB_REF##*/} | sed -e "s/branch-//"`
+  
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
